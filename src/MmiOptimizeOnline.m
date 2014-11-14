@@ -85,10 +85,10 @@ for iteration=bgnit:endit
     % momentum (add a fraction of the previous change)
     if momentum==0,
       % update and orthonormalize W
-      state.W = -orthonormalize(state.W + eta*updateW);
+      state.W = orthonormalize(state.W + eta*updateW);
     else
       deltaW = eta * updateW + momentum * deltaW;
-      newW = -orthonormalize(state.W + deltaW);  % orthogonalize
+      newW = orthonormalize(state.W + deltaW);  % orthogonalize
       deltaW = newW-state.W;
       state.W = newW;
     end
